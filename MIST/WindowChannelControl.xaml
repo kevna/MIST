@@ -1,0 +1,28 @@
+﻿<s:SurfaceWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="http://schemas.microsoft.com/surface/2008"
+    xmlns:local="clr-namespace:ApplicationMist" x:Class="ApplicationMist.WindowChannelControl"
+    Title="Channel Controls - MIST" Icon="Resources/logo.png"
+    >
+    <!-- Icon courtesy of iconka (via iconfinder.com) http://iconka.com -->
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <DockPanel Width="120">
+                <local:SurfaceControlBalanceDial DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+                <s:SurfaceButton DockPanel.Dock="Top" IsEnabled="True" HorizontalAlignment="Center" Content="ON"/>
+                <s:SurfaceSlider DockPanel.Dock="Bottom" Orientation="Vertical" AutoToolTipPlacement="TopLeft" Maximum="100" HorizontalAlignment="Center"/>
+            </DockPanel>
+            <DockPanel Width="120">
+                <local:SurfaceControlBalanceDial DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+                <s:SurfaceButton DockPanel.Dock="Top" IsEnabled="False" HorizontalAlignment="Center" Content="OFF"/>
+                <s:SurfaceSlider DockPanel.Dock="Bottom" Orientation="Vertical" AutoToolTipPlacement="TopLeft" Maximum="100" HorizontalAlignment="Center"/>
+            </DockPanel>
+            <DockPanel Width="120">
+                <local:SurfaceControlBalanceDial DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+                <s:SurfaceButton DockPanel.Dock="Top" IsEnabled="True" HorizontalAlignment="Center" Content="ON"/>
+                <s:SurfaceSlider DockPanel.Dock="Bottom" Orientation="Vertical" AutoToolTipPlacement="TopLeft" Maximum="100" HorizontalAlignment="Center"/>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</s:SurfaceWindow>

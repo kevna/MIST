@@ -1,0 +1,12 @@
+﻿<s:SurfaceWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="http://schemas.microsoft.com/surface/2008"
+    xmlns:local="clr-namespace:ApplicationMist"
+        x:Class="ApplicationMist.WindowChannelSequencer"
+        Title="Channel Sequencer - MIST" Icon="Resources/logo.png">
+    <!-- Icon courtesy of iconka (via iconfinder.com) http://iconka.com -->
+    <Grid>
+        
+    </Grid>
+</s:SurfaceWindow>
