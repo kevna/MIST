@@ -13,19 +13,102 @@
                 <!-- Mixer Button -->
                 <s:SurfaceButton DockPanel.Dock="Right" IsEnabled="True" VerticalAlignment="Center" Content="Levels" Click="MixerButton_Click"/>
                 
-                <!-- Track overview -->
-
                 <!-- TODO Playback Controls -->
-                <!-- <MediaElement DockPanel.Dock="Left"></MediaElement> -->
+                <DockPanel VerticalAlignment="Top">
+                    <!-- <MediaElement DockPanel.Dock="Left"></MediaElement> -->
+                    <s:SurfaceButton Content="&lt;&lt;" />
+                    <s:SurfaceButton Content="&gt;" />
+                    <s:SurfaceButton Content="||" />
+                    <s:SurfaceButton Content="&gt;&gt;" />
+                </DockPanel>
+                
+                <!-- Track overview -->
+                <TextBlock Text="Overview Here"/>
             </DockPanel>
         </Border>
         <!-- Stack of channel elements (placed last in DockPanel to fill remaining space) -->
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <!-- Individual channel element -->
-            <DockPanel Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                <!-- Channel information panel -->
-                <!-- Channel sequence panel -->
-            </DockPanel>
-        </StackPanel>
+        <s:SurfaceScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
+                <!-- Individual channel element -->
+                <DockPanel Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <!-- Channel information panel -->
+                    <Border DockPanel.Dock="Left" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Top">Channel 1</TextBlock>
+                            <s:SurfaceButton Content="Open File..." />
+                        </DockPanel>
+                    </Border>
+                    <!-- Channel sequence panel -->
+                    <Grid Width="1000" DockPanel.Dock="Right">
+                        <Border Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        </Border>
+                    </Grid>
+                </DockPanel>
+
+                <!-- Individual channel element -->
+                <DockPanel Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <!-- Channel information panel -->
+                    <Border DockPanel.Dock="Left" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Top">Channel 1</TextBlock>
+                            <s:SurfaceButton Content="Open File..." />
+                        </DockPanel>
+                    </Border>
+                    <!-- Channel sequence panel -->
+                    <Grid Width="1000" DockPanel.Dock="Right">
+                        <Border Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        </Border>
+                    </Grid>
+                </DockPanel>
+
+                <!-- Individual channel element -->
+                <DockPanel Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <!-- Channel information panel -->
+                    <Border DockPanel.Dock="Left" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Top">Channel 1</TextBlock>
+                            <s:SurfaceButton Content="Open File..." />
+                        </DockPanel>
+                    </Border>
+                    <!-- Channel sequence panel -->
+                    <Grid Width="1000" DockPanel.Dock="Right">
+                        <Border Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        </Border>
+                    </Grid>
+                </DockPanel>
+
+                <!-- Individual channel element -->
+                <DockPanel Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <!-- Channel information panel -->
+                    <Border DockPanel.Dock="Left" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Top">Channel 1</TextBlock>
+                            <s:SurfaceButton Content="Open File..." />
+                        </DockPanel>
+                    </Border>
+                    <!-- Channel sequence panel -->
+                    <Grid Width="1000" DockPanel.Dock="Right">
+                        <Border Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        </Border>
+                    </Grid>
+                </DockPanel>
+
+                <!-- Individual channel element -->
+                <DockPanel Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <!-- Channel information panel -->
+                    <Border DockPanel.Dock="Left" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Top">Channel 1</TextBlock>
+                            <s:SurfaceButton Content="Open File..." />
+                        </DockPanel>
+                    </Border>
+                    <!-- Channel sequence panel -->
+                    <Grid Width="1000" DockPanel.Dock="Right">
+                        <Border Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+                        </Border>
+                    </Grid>
+                </DockPanel>
+            </StackPanel>
+        </s:SurfaceScrollViewer>
     </DockPanel>
 </s:SurfaceWindow>
