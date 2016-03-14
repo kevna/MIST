@@ -11,7 +11,7 @@
         <Border DockPanel.Dock="Bottom" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
             <DockPanel Height="120" Margin="20">
                 <!-- Mixer Button -->
-                <s:SurfaceButton DockPanel.Dock="Right" IsEnabled="True" VerticalAlignment="Center" Content="Levels"/>
+                <s:SurfaceButton DockPanel.Dock="Right" IsEnabled="True" VerticalAlignment="Center" Content="Levels" Click="MixerButton_Click"/>
                 
                 <!-- Track overview -->
 
