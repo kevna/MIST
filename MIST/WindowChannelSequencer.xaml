@@ -6,7 +6,26 @@
         x:Class="ApplicationMist.WindowChannelSequencer"
         Title="Channel Sequencer - MIST" Icon="Resources/logo.png">
     <!-- Icon courtesy of iconka (via iconfinder.com) http://iconka.com -->
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <!-- Control Panel docked at bottom -->
+        <Border DockPanel.Dock="Bottom" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
+            <DockPanel Height="120" Margin="20">
+                <!-- Mixer Button -->
+                <s:SurfaceButton DockPanel.Dock="Right" IsEnabled="True" VerticalAlignment="Center" Content="Levels"/>
+                
+                <!-- Track overview -->
+
+                <!-- TODO Playback Controls -->
+                <!-- <MediaElement DockPanel.Dock="Left"></MediaElement> -->
+            </DockPanel>
+        </Border>
+        <!-- Stack of channel elements (placed last in DockPanel to fill remaining space) -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <!-- Individual channel element -->
+            <DockPanel Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                <!-- Channel information panel -->
+                <!-- Channel sequence panel -->
+            </DockPanel>
+        </StackPanel>
+    </DockPanel>
 </s:SurfaceWindow>
