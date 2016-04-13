@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SurfaceApplicationMist
+namespace ApplicationMist
 {
     class ChannelList
     {
 
         protected List<ChannelItem> Channels;
+
+        public ChannelList()
+        {
+            Channels = new List<ChannelItem>();
+        }
 
         /// <summary>
         /// Add a new channel item to the list.
