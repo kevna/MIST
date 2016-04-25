@@ -12,5 +12,12 @@ namespace ApplicationMist
     /// </summary>
     public partial class App : Application
     {
+
+        public static ChannelList ChannelController;
+
+        public App()
+        {
+            ChannelController = new ChannelList();
+        }
     }
 }
