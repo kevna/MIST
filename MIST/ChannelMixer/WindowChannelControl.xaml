@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:s="http://schemas.microsoft.com/surface/2008"
     xmlns:local="clr-namespace:ApplicationMist" x:Class="ApplicationMist.WindowChannelControl"
-    Title="Channel Controls - MIST" Icon="Resources/logo.png"
+    Title="Channel Controls - MIST" Icon="/Resources/logo.png"
     >
     <!-- Icon courtesy of iconka (via iconfinder.com) http://iconka.com -->
     <Grid>

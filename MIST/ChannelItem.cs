@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework.Audio;
 
 namespace ApplicationMist
 {
     public class ChannelItem
     {
+        public Boolean Audiable;
+
+        protected SortedSet<TimeSpan> PlaybackPoints;
 
         /// <summary>
         /// Internal variable for Volume property.
@@ -16,28 +19,33 @@ namespace ApplicationMist
 
         /// <summary>
         /// Volume property with limit enforcement on mutator (setter).
+        /// 
+        /// allows getting and setting volume with more natural 0-100 value (internally uses 0.0f-1.0f)
         /// </summary>
-        public float Volume
+        public int Volume
         {
             // Simple accessor, we don't need to do anything special getting the volume level
-            get { return VolumeLevel; }
+            get { return (int)(100 * VolumeLevel); }
 
             // Mutator with limits for volume level (can't be over 1 (100%) or under 0 (0%))
             set
             {
+                float volume = (value / 100f);
                 // Upper limit 1.0f (100%)
-                if (value > 1.0f)
+                if (volume > 1.0f)
                 {
-                    value = 1.0f;
+                    volume = 1.0f;
                 }
                 // Lower limit 0.0f (0%)
-                else if (value < 0.0f)
+                else if (volume < 0.0f)
                 {
-                    value = 0.0f;
+                    volume = 0.0f;
                 }
 
                 // Set the volume level
-                VolumeLevel = value;
+                VolumeLevel = volume;
+                
+                //OnPropertyChanged("Volume");
             }
         }
 
@@ -49,34 +57,35 @@ namespace ApplicationMist
         /// <summary>
         /// Balance property with limit enforcement on mutator (setter).
         /// </summary>
-        public float Balance
+        public int Balance
         {
             // Simple accessor, we don't need to do anything special getting the balance value
-            get { return BalanceValue; }
+            get { return (int)(100 * BalanceValue); }
 
             // Mutator with limits for balance value (can't be over 1 (full right) or under -1 (full left))
             set
             {
+                float balance = (value / 100f);
                 // Upper limit 1.0f (full right)
-                if (value > 1.0f)
+                if (balance > 1.0f)
                 {
-                    value = 1.0f;
+                    balance = 1.0f;
                 }
                 // Lower limit -1.0f (full left)
-                else if (value < -1.0f)
+                else if (balance < -1.0f)
                 {
-                    value = -1.0f;
+                    balance = -1.0f;
                 }
 
                 // Set the balance value
-                BalanceValue = value;
+                BalanceValue = balance;
             }
         }
 
         /// <summary>
         /// Song object for the soundbyte connected to this channel.
         /// </summary>
-        protected SoundEffect ChannelSoundbyte;
+        //protected SoundEffect ChannelSoundbyte;
 
         /// <summary>
         /// List of times to start channel playback.
@@ -88,9 +97,11 @@ namespace ApplicationMist
         /// </summary>
         public ChannelItem()
         {
-            Volume = 1.0f;
-            Balance = 0.0f;
-            ChannelSoundbyte = null;
+            PlaybackPoints = new SortedSet<TimeSpan>();
+            Volume = 100;
+            Balance = 0;
+            Audiable = true;
+            //ChannelSoundbyte = null;
         }
 
         /// <summary>
@@ -99,8 +110,10 @@ namespace ApplicationMist
         /// <param name="FileName">Name of the soundbyte file to load.</param>
         public ChannelItem(String FileName)
         {
-            Volume = 1.0f;
-            Balance = 0.0f;
+            PlaybackPoints = new SortedSet<TimeSpan>();
+            Volume = 100;
+            Balance = 0;
+            Audiable = true;
             LoadSoundbyte(FileName);
         }
 
@@ -111,7 +124,7 @@ namespace ApplicationMist
         public void LoadSoundbyte(String FileName)
         {
             // Load the soundbyte into the channel item
-            ChannelSoundbyte = Content.Load<SoundEffect>(FileName);
+            // ChannelSoundbyte = Content.Load<SoundEffect>(FileName);
         }
 
         /// <summary>
@@ -126,15 +139,16 @@ namespace ApplicationMist
         public Boolean Play()
         {
             // Don't have soundbyte to play back
-            if (null == ChannelSoundbyte)
+            /*if (null == ChannelSoundbyte)
             {
                 // Sound is not playing if there's no sound to play.
                 return false;
-            }
+            }*/
 
             // SoundEffect.Play returns true if playing correctly, else false
-            return ChannelSoundbyte.Play(Volume, 0.0f, Balance);
+            //return ChannelSoundbyte.Play(Volume, 0.0f, Balance);
+            return false;
         }
-
+        
     }
 }

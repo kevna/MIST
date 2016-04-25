@@ -17,11 +17,42 @@ using System.Windows.Forms;
 
 namespace ApplicationMist
 {
+    //public delegate void ValueChangedEventHandler(object sender, ValueChangedEventArgs e);
     /// <summary>
     /// Interaction logic for SurfaceBalanceDial.xaml
     /// </summary>
     public partial class SurfaceControlBalanceDial : System.Windows.Controls.UserControl
     {
+
+        public int Value
+        {
+            get { return (int)Math.Round((Angle / 115) * 100); }
+            set { Angle = (value / 100f) * 115; }
+        }
+
+        protected double Angle
+        {
+            get { return DialRotation.Angle; }
+            set
+            {
+                if (value < -115 || value > 215)
+                {
+                    value = -115;
+                }
+                else if (value > 115)
+                {
+                    value = 115;
+                }
+
+                DialRotation.Angle = value;
+
+                EventArgs changeEvent;
+                changeEvent = new EventArgs();
+
+                SurfaceControlBalanceDial_ValueChanged(this, new EventArgs());
+            }
+        }
+
         public SurfaceControlBalanceDial()
         {
             InitializeComponent();
@@ -72,18 +103,9 @@ namespace ApplicationMist
         {
             Point PivotPosition = e.GetTouchPoint(ControlArea).Position;
 
-            double rotation = DialRotation.Angle + CalcAngle(PivotPosition, PivotCentre);
+            double rotation = Angle + CalcAngle(PivotPosition, PivotCentre);
 
-            if (rotation < -115 || rotation > 215)
-            {
-                rotation = -115;
-            }
-            else if (rotation > 115)
-            {
-                rotation = 115;
-            }
-
-            DialRotation.Angle = rotation;
+            Angle = rotation;
         }
 
         /// <summary>
@@ -96,10 +118,19 @@ namespace ApplicationMist
             // If we tapped for less than 200miliseconds then we reset the balance to a perfect 50:50 split
             if ((e.Timestamp - TapTime) <= 200)
             {
-                DialRotation.Angle = 0;
+                Angle = 0;
             }
 
             DialSwell.Margin = new Thickness(20);
+        }
+
+        public event EventHandler ValueChanged;
+
+        protected void SurfaceControlBalanceDial_ValueChanged(object sender, EventArgs e)
+        {
+            //bubble the event up to the parent
+            if (this.ValueChanged != null)
+                this.ValueChanged(this, e);
         }
     }
 }

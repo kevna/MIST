@@ -7,11 +7,14 @@
              xmlns:local="clr-namespace:ApplicationMist"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="120" Width="120">
+    <Control.DataContext>
+        <local:ChannelItem x:Name="LinkedChannel"/>
+    </Control.DataContext>
     <Border BorderBrush="Gainsboro" BorderThickness="1">
         <DockPanel>
-            <local:SurfaceControlBalanceDial DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
-            <s:SurfaceButton DockPanel.Dock="Top" IsEnabled="True" HorizontalAlignment="Center" Content="ON"/>
-            <s:SurfaceSlider DockPanel.Dock="Bottom" Orientation="Vertical" AutoToolTipPlacement="TopLeft" Maximum="100" HorizontalAlignment="Center"/>
+            <local:SurfaceControlBalanceDial x:Name="BalancePot" DockPanel.Dock="Bottom" HorizontalAlignment="Center" ValueChanged="BalancePot_ValueChanged"/>
+            <s:SurfaceToggleButton x:Name="OnButton" IsChecked="{Binding Audiable, Mode=TwoWay}" DockPanel.Dock="Top" HorizontalAlignment="Center" Content="ON" Click="OnButton_Click"/>
+            <s:SurfaceSlider x:Name="VolumeSlider" Value="{Binding Volume, Mode=TwoWay}" DockPanel.Dock="Bottom" Orientation="Vertical" AutoToolTipPlacement="TopLeft" Maximum="100" HorizontalAlignment="Center" ValueChanged="VolumeSlider_ValueChanged"/>
         </DockPanel>
     </Border>
 </UserControl>

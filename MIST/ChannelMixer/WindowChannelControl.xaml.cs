@@ -36,8 +36,13 @@ namespace ApplicationMist
 
         public void Open()
         {
+            SingleChannelStrip ChannelStrip;
+
             foreach (ChannelItem CurrentChannel in App.ChannelController)
-                MixerPanel.Children.Add(new SingleChannelStrip());
+            {
+                ChannelStrip = new SingleChannelStrip(CurrentChannel);
+                MixerPanel.Children.Add(ChannelStrip);
+            }
             this.Show();
         }
 
