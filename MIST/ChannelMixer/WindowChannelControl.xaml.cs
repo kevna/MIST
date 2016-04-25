@@ -29,87 +29,31 @@ namespace ApplicationMist
         public WindowChannelControl()
         {
             InitializeComponent();
-
-            // Add handlers for window availability events
-            AddWindowAvailabilityHandlers();
         }
 
+        /// <summary>
+        /// Custom function for showing the window so that we can first dynamically populate it from the model.
+        /// 
+        /// We populate it right before it's shown to avoid it being out of date.
+        /// </summary>
         public void Open()
         {
+            // Hold a reference for the current channel strip as we make each one
             SingleChannelStrip ChannelStrip;
 
+            // Loop through the model's list of channels
             foreach (ChannelItem CurrentChannel in App.ChannelController)
             {
+                // Create a new channel strip with the current channel
                 ChannelStrip = new SingleChannelStrip(CurrentChannel);
+
+                // Add the new channel strip to the mixer panel in the window
                 MixerPanel.Children.Add(ChannelStrip);
             }
+
+            // Finished populating the controls, now we can show the window
             this.Show();
         }
-
-        /// <summary>
-        /// Occurs when the window is about to close. 
-        /// </summary>
-        /// <param name="e"></param>
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-
-            // Remove handlers for window availability events
-            RemoveWindowAvailabilityHandlers();
-        }
-
-        /// <summary>
-        /// Adds handlers for window availability events.
-        /// </summary>
-        private void AddWindowAvailabilityHandlers()
-        {
-            // Subscribe to surface window availability events
-            ApplicationServices.WindowInteractive += OnWindowInteractive;
-            ApplicationServices.WindowNoninteractive += OnWindowNoninteractive;
-            ApplicationServices.WindowUnavailable += OnWindowUnavailable;
-        }
-
-        /// <summary>
-        /// Removes handlers for window availability events.
-        /// </summary>
-        private void RemoveWindowAvailabilityHandlers()
-        {
-            // Unsubscribe from surface window availability events
-            ApplicationServices.WindowInteractive -= OnWindowInteractive;
-            ApplicationServices.WindowNoninteractive -= OnWindowNoninteractive;
-            ApplicationServices.WindowUnavailable -= OnWindowUnavailable;
-        }
-
-        /// <summary>
-        /// This is called when the user can interact with the application's window.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnWindowInteractive(object sender, EventArgs e)
-        {
-            //TODO: enable audio, animations here
-        }
-
-        /// <summary>
-        /// This is called when the user can see but not interact with the application's window.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnWindowNoninteractive(object sender, EventArgs e)
-        {
-            //TODO: Disable audio here if it is enabled
-
-            //TODO: optionally enable animations here
-        }
-
-        /// <summary>
-        /// This is called when the application's window is not visible or interactive.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnWindowUnavailable(object sender, EventArgs e)
-        {
-            //TODO: disable audio, animations here
-        }
+        
     }
 }
