@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="ApplicationMist.SingleChannelStrip"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:s="http://schemas.microsoft.com/surface/2008"
+             xmlns:local="clr-namespace:ApplicationMist"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="120" Width="120">
+    <Border BorderBrush="Gainsboro" BorderThickness="1">
+        <DockPanel>
+            <local:SurfaceControlBalanceDial DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+            <s:SurfaceButton DockPanel.Dock="Top" IsEnabled="True" HorizontalAlignment="Center" Content="ON"/>
+            <s:SurfaceSlider DockPanel.Dock="Bottom" Orientation="Vertical" AutoToolTipPlacement="TopLeft" Maximum="100" HorizontalAlignment="Center"/>
+        </DockPanel>
+    </Border>
+</UserControl>
