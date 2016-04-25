@@ -7,22 +7,7 @@
     >
     <!-- Icon courtesy of iconka (via iconfinder.com) http://iconka.com -->
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <DockPanel Width="120">
-                <local:SurfaceControlBalanceDial DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
-                <s:SurfaceButton DockPanel.Dock="Top" IsEnabled="True" HorizontalAlignment="Center" Content="ON"/>
-                <s:SurfaceSlider DockPanel.Dock="Bottom" Orientation="Vertical" AutoToolTipPlacement="TopLeft" Maximum="100" HorizontalAlignment="Center"/>
-            </DockPanel>
-            <DockPanel Width="120">
-                <local:SurfaceControlBalanceDial DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
-                <s:SurfaceButton DockPanel.Dock="Top" IsEnabled="False" HorizontalAlignment="Center" Content="OFF"/>
-                <s:SurfaceSlider DockPanel.Dock="Bottom" Orientation="Vertical" AutoToolTipPlacement="TopLeft" Maximum="100" HorizontalAlignment="Center"/>
-            </DockPanel>
-            <DockPanel Width="120">
-                <local:SurfaceControlBalanceDial DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
-                <s:SurfaceButton DockPanel.Dock="Top" IsEnabled="True" HorizontalAlignment="Center" Content="ON"/>
-                <s:SurfaceSlider DockPanel.Dock="Bottom" Orientation="Vertical" AutoToolTipPlacement="TopLeft" Maximum="100" HorizontalAlignment="Center"/>
-            </DockPanel>
+        <StackPanel x:Name="MixerPanel" Orientation="Horizontal">
         </StackPanel>
     </Grid>
 </s:SurfaceWindow>

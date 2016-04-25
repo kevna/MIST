@@ -34,6 +34,13 @@ namespace ApplicationMist
             AddWindowAvailabilityHandlers();
         }
 
+        public void Open()
+        {
+            foreach (ChannelItem CurrentChannel in App.ChannelController)
+                MixerPanel.Children.Add(new SingleChannelStrip());
+            this.Show();
+        }
+
         /// <summary>
         /// Occurs when the window is about to close. 
         /// </summary>
