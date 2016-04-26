@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="ApplicationMist.SingleSequencerBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:s="http://schemas.microsoft.com/surface/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ApplicationMist"
+             mc:Ignorable="d" 
+             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+             d:DesignHeight="200" d:DesignWidth="900">
+    <Border BorderThickness="1" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ControlBorderBrushKey}}">
+    <Canvas  MinHeight="120" MinWidth="0" x:Name="ControlArea" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TouchDown="OnTouchDown" TouchMove="OnTouchMove" TouchUp="OnTouchUp" Background="{DynamicResource {x:Static s:SurfaceColors.ControlBackgroundBrushKey}}">
+
+    </Canvas>
+    </Border>
+</UserControl>

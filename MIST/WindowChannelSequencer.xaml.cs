@@ -42,7 +42,7 @@ namespace ApplicationMist
         private void MixerButton_Click(object sender, RoutedEventArgs e)
         {
             // Show the mixer window we've created
-            MixerWindow.Show();
+            MixerWindow.Open();
         }
     }
 }
