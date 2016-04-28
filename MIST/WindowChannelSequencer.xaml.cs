@@ -44,5 +44,14 @@ namespace ApplicationMist
             // Show the mixer window we've created
             MixerWindow.Open();
         }
+
+        private void ChannelButton_Click(object sender, RoutedEventArgs e)
+        {
+            ChannelItem NewChannel = new ChannelItem();
+
+            App.ChannelController.AddChannel(NewChannel);
+
+            SequencerPanel.Children.Add(new WholeSequencerRow(NewChannel));
+        }
     }
 }

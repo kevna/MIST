@@ -27,8 +27,6 @@ namespace ApplicationMist
             // Add the new ChannelItem to the channel list
             Channels.Add(Channel);
 
-            // Quickest method to get the index of the newly added item is to return count-1
-            // as List.add always adds to the end of the list (O(1) is better than O(n)).
             return Channels.LastIndexOf(Channel);
         }
 

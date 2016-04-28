@@ -11,8 +11,10 @@
         <Border DockPanel.Dock="Bottom" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
             <DockPanel Height="120" Margin="20">
                 <!-- Mixer Button -->
-                <s:SurfaceButton DockPanel.Dock="Right" IsEnabled="True" VerticalAlignment="Center" Content="Levels" Click="MixerButton_Click"/>
-                
+                <StackPanel DockPanel.Dock="Right">
+                    <s:SurfaceButton DockPanel.Dock="Right" IsEnabled="True" VerticalAlignment="Center" Content="Add Channel" Click="ChannelButton_Click"/>
+                    <s:SurfaceButton DockPanel.Dock="Right" IsEnabled="True" VerticalAlignment="Center" Content="Levels" Click="MixerButton_Click"/>
+                </StackPanel>
                 <!-- TODO Playback Controls -->
                 <DockPanel VerticalAlignment="Top">
                     <!-- <MediaElement DockPanel.Dock="Left"></MediaElement> -->
@@ -27,19 +29,8 @@
             </DockPanel>
         </Border>
         <!-- Stack of channel elements (placed last in DockPanel to fill remaining space) -->
-        <StackPanel DockPanel.Dock="Top" Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+        <StackPanel DockPanel.Dock="Top" x:Name="SequencerPanel" Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
             <!-- Individual channel element -->
-            <DockPanel Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                <!-- Channel information panel -->
-                <Border DockPanel.Dock="Left" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" BorderBrush="Gainsboro" BorderThickness="1">
-                    <DockPanel>
-                        <TextBlock DockPanel.Dock="Top">Channel 1</TextBlock>
-                        <s:SurfaceButton Content="Open File..." />
-                    </DockPanel>
-                </Border>
-                <!-- Channel sequence panel -->
-                <local:SingleSequencerBar DockPanel.Dock="Right" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-            </DockPanel>
         </StackPanel>
     </DockPanel>
 </s:SurfaceWindow>
