@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace ApplicationMist
 {
-    class ChannelList
+    public class ChannelList : IEnumerable
     {
 
         protected List<ChannelItem> Channels;
@@ -13,6 +14,7 @@ namespace ApplicationMist
         public ChannelList()
         {
             Channels = new List<ChannelItem>();
+            AddChannel();
         }
 
         /// <summary>
@@ -27,7 +29,7 @@ namespace ApplicationMist
 
             // Quickest method to get the index of the newly added item is to return count-1
             // as List.add always adds to the end of the list (O(1) is better than O(n)).
-            return (Channels.Count - 1);
+            return Channels.LastIndexOf(Channel);
         }
 
         /// <summary>
@@ -65,5 +67,9 @@ namespace ApplicationMist
             return Channels[ChannelID];
         }
 
+        public IEnumerator GetEnumerator()
+        {
+            return Channels.GetEnumerator();
+        }
     }
 }

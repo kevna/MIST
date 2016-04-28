@@ -8,7 +8,7 @@ namespace ApplicationMist
 {
     public class ChannelItem
     {
-        public Boolean Audiable;
+        public bool Audiable { get; set; }
 
         protected SortedSet<TimeSpan> PlaybackPoints;
 
