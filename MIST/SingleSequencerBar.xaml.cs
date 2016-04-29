@@ -32,6 +32,20 @@ namespace ApplicationMist
 
         protected SolidColorBrush SoundFill;
 
+        public SolidColorBrush BarBrush
+        {
+            get { return SoundFill; }
+            set
+            {
+                SoundFill = value;
+
+                foreach (Rectangle CurrentSound in Soundbytes)
+                {
+                    CurrentSound.Fill = SoundFill;
+                }
+            }
+        }
+
         /// <summary>
         /// Time of gesture start which we can use to identify a tap gesture.
         /// </summary>

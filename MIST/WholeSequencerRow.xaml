@@ -16,6 +16,6 @@
             </DockPanel>
         </Border>
         <!-- Channel sequence panel -->
-        <local:SingleSequencerBar DockPanel.Dock="Right" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <local:SingleSequencerBar x:Name="SequencerBar" DockPanel.Dock="Right" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
     </DockPanel>
 </UserControl>

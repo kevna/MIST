@@ -49,9 +49,9 @@ namespace ApplicationMist
         {
             ChannelItem NewChannel = new ChannelItem();
 
-            App.ChannelController.AddChannel(NewChannel);
+            int RowNumber = App.ChannelController.AddChannel(NewChannel);
 
-            SequencerPanel.Children.Add(new WholeSequencerRow(NewChannel));
+            SequencerPanel.Children.Add(new WholeSequencerRow(NewChannel, RowNumber));
         }
     }
 }

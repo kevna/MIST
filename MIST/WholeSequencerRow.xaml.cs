@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Surface.Presentation;
 
 namespace ApplicationMist
 {
@@ -21,12 +22,37 @@ namespace ApplicationMist
     {
         protected ChannelItem channelModel;
 
-        public WholeSequencerRow(ChannelItem channel)
+        public WholeSequencerRow(ChannelItem channel, int RowNumber)
         {
             InitializeComponent();
             channelModel = channel;
+            SequencerBar.BarBrush = RowColour(RowNumber);
         }
 
+        protected SolidColorBrush RowColour(int RowNumber)
+        {
+            if (RowNumber > 4)
+            {
+                RowNumber = RowNumber % 4;
+            }
+
+            SolidColorBrush Colour = SurfaceColors.Accent1Brush;
+
+            switch(RowNumber)
+            {
+                case 2:
+                    Colour = SurfaceColors.Accent2Brush;
+                    break;
+                case 3:
+                    Colour = SurfaceColors.Accent3Brush;
+                    break;
+                case 4:
+                    Colour = SurfaceColors.Accent4Brush;
+                    break;
+            }
+
+            return Colour;
+        }
 
     }
 }
